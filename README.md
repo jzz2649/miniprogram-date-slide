@@ -2,7 +2,9 @@
 
 ## 安装
 
+```
 npm install --save miniprogram-date-slide
+```
 
    **date-slide 的属性介绍如下：**
 
