@@ -1,0 +1,17 @@
+<wxs src="./index.wxs" module="ut" />
+<view>
+    <view class="title">
+        <view wx:for="{{title}}" wx:key="key" class="item">{{item.text}}</view>
+    </view>
+    <view>
+        <swiper circular bindchange="change" class="s-box" bind:tap="click">
+            <block wx:for="{{list}}" wx:key="idx">
+                <swiper-item class="s-item">
+                    <view class="box">
+                        <view wx:for="{{item.list}}" wx:for-item="time" wx:key="time" data-time="{{time.time}}" data-status="{{time.status}}" class="{{ut.toCls(time, filters, outTime, disabled, activeTime)}} item">{{time.day}}</view>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+</view>

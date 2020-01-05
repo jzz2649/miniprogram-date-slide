@@ -1,0 +1,12 @@
+function toCls(item, filter, outTime, disabled, active) {
+  if (disabled || (outTime && item.status === -1) || filter[item.time]) {
+    return 'disabled'
+  }
+  if (active === item.time) {
+    return 'active'
+  }
+}
+
+module.exports = {
+  toCls: toCls
+}
