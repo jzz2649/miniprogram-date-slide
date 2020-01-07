@@ -1,5 +1,5 @@
 <view>
-    <date-slide bind:change="change" bind:click="click" outTime />
+    <date-slide bind:change="change" bind:click="click" timeOut />
     <view>当前时间: {{range}}</view>
     <view>当前选中的时间: {{active}}</view>
 </view>

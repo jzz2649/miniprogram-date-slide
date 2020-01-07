@@ -1,5 +1,13 @@
 <wxs src="./index.wxs" module="ut" />
-<view>
+<view class="container">
+    <view wx:if="{{label}}" class="label">
+        <block wx:if="{{label === 'range'}}">
+            <text>{{labelValue.range[0]}}</text>
+            <text class="break">-</text>
+            <text>{{labelValue.range[1]}}</text>
+        </block>
+        <text wx:else>{{labelValue.month}}</text>
+    </view>
     <view class="title">
         <view wx:for="{{title}}" wx:key="key" class="item">{{item.text}}</view>
     </view>
@@ -8,7 +16,7 @@
             <block wx:for="{{list}}" wx:key="idx">
                 <swiper-item class="s-item">
                     <view class="box">
-                        <view wx:for="{{item.list}}" wx:for-item="time" wx:key="time" data-time="{{time.time}}" data-status="{{time.status}}" class="{{ut.toCls(time, filters, outTime, disabled, activeTime)}} item">{{time.day}}</view>
+                        <view wx:for="{{item.list}}" wx:for-item="time" wx:key="time" data-time="{{time.time}}" data-status="{{time.status}}" class="{{ut.toCls(time, filters, timeOut, disabled, activeTime)}} item">{{time.day}}</view>
                     </view>
                 </swiper-item>
             </block>

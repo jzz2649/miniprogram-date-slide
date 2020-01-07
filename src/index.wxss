@@ -1,7 +1,12 @@
+.container {
+  font-size: 14px;
+  color: #222;
+}
+
 .title,
 .box {
   display: flex;
-  font-size: 14px;
+  font-size: inherit;
   height: 48px;
 }
 
@@ -10,6 +15,21 @@
   text-align: center;
   line-height: 48px;
   position: relative;
+}
+
+.title .item {
+  opacity: .6;
+}
+
+.label {
+  font-size: inherit;
+  padding: 12px 24px;
+  line-height: 24px;
+  opacity: .695;
+}
+
+.break {
+  margin: 0 5px;
 }
 
 .s-box {

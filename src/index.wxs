@@ -1,5 +1,5 @@
-function toCls(item, filter, outTime, disabled, active) {
-  if (disabled || (outTime && item.status === -1) || filter[item.time]) {
+function toCls(item, filter, timeOut, disabled, active) {
+  if (disabled || (timeOut && item.status === -1) || filter[item.time]) {
     return 'disabled'
   }
   if (active === item.time) {

@@ -103,10 +103,25 @@ function getList(time, count, current) {
   return list
 }
 
+function getFT(time, full) {
+  const d = time.split('/')
+  const t = d[0] + '年' + Number(d[1]) + '月'
+  return full ? t + Number(d[2]) + '日' : t
+}
+
+function getLabel(key) {
+  const time = key.split(' ')
+  return {
+    month: getFT(time[0]),
+    range: [getFT(time[0], true), getFT(time[1], true)]
+  }
+}
+
 module.exports = {
   createItem,
   getList,
   getCurrTime,
   getNextDate,
-  getPrevDate
+  getPrevDate,
+  getLabel
 }

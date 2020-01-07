@@ -18,7 +18,11 @@ Component({
       type: Array,
       value: [],
     },
-    outTime: {
+    label: {
+      type: String,
+      value: 'month',
+    },
+    timeOut: {
       type: Boolean,
       value: false
     },
@@ -52,6 +56,7 @@ Component({
     activeTime: ut.getCurrTime(),
     filters: {},
     list: [],
+    labelValue: {month: '', range: []},
     _current: 0,
     _count: 2
   },
@@ -78,15 +83,16 @@ Component({
           return item
         })
         this.setData({
-          list: newList
+          list: newList,
+          labelValue: ut.getLabel(list[current].key)
         })
         this.triggerEvent('change', list[current].key)
       }
     },
     click(event) {
-      const {disabled, outTime, filters} = this.data
+      const {disabled, timeOut, filters} = this.data
       const {time, status} = event.target.dataset
-      if (disabled || (outTime && status === -1) || filters[time]) {
+      if (disabled || (timeOut && status === -1) || filters[time]) {
         return
       }
       if (time) {
@@ -125,9 +131,11 @@ Component({
     update(time) {
       const {activeTime, _count, _current} = this.data
       time = time || activeTime
+      const list = ut.getList(time, _count, _current)
       this.setData({
         activeTime: time,
-        list: ut.getList(time, _count, _current)
+        labelValue: ut.getLabel(list[_current].key),
+        list
       })
     }
   },
