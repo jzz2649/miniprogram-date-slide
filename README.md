@@ -1,5 +1,9 @@
 # miniprogram-date-slide
 
+> 一个日期选择插件
+
+![avatar](https://s2.ax1x.com/2020/01/07/lgSETO.png)
+
 ## 安装
 
 ```
